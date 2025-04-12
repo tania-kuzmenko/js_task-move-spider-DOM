@@ -7,6 +7,15 @@ document.addEventListener('click', (e) => {
   const wallSpace = wall.getBoundingClientRect();
   const spiderSpace = spider.getBoundingClientRect();
 
+  if (
+    e.clientX < wallSpace.left ||
+    e.clientX > wallSpace.right ||
+    e.clientY < wallSpace.top ||
+    e.clientY > wallSpace.bottom
+  ) {
+    return;
+  }
+
   const wallStyle = getComputedStyle(wall);
 
   const borderHorWidth =
